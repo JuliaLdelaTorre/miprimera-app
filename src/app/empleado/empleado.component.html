@@ -1,19 +1,20 @@
-<p>Nombre del empleado: {{nombre}}</p>
+<div class="container">
+  <div class="empleado" *ngFor="let empleado of empleados; index as i">
+    <div class="nombre">
+        <p>Nombre del empleado: {{ empleado.nombre }}</p>
+        <input type="text" [(ngModel)]="this.empleados[i].nombre">
+    </div>
+    <p>Apellido del empleado: {{ empleado.apellido }}</p>
+    <p>
+      Edad del empleado: {{ empleado.edad }},
+      {{ empleado.edad < 18 ? "Menor de edad" : "Mayor de edad" }}
+    </p>
+    <p>Empresa del empleado: {{ empresa.value }}</p>
+    <label for=""> Introduce la empresa: </label>
+    <input type="text" #empresa (keyup)="(0)" [disabled]="habilitacionCuadro" />
+  </div>
+</div>
 
-<p>Apellido del empleado: {{apellido}}</p>
-
-<p>Edad del empleado: {{edad}}, {{edad<18 ? "Menor de edad" : "Mayor de edad"}}</p>
-
+<!-- <button (click)="habilitacionCuadro = !habilitacionCuadro" ><label for="edit-empresa">EDITAR</label></button> -->
 <!-- <p>Edad del empleado: {{getEdad()}}</p> usaría getEdad() si en el ts lo tuviera con private-->
-
-<p>Empresa del empleado: {{empresa.value}}</p>
-
-Introduce la empresa: <input type="text" #empresa (keyup)="0" [disabled]="habilitacionCuadro">
-
-<br/>
-<br/>
-
-<!--<input type="button" value="Dale!" (click)="llamaEmpresa(empresa.value)">--> 
-
- 
-
+<!--<input type="button" value="Dale!" (click)="llamaEmpresa(empresa.value)">-->
