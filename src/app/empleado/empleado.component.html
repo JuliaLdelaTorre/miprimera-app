@@ -1,8 +1,8 @@
 <div class="container">
   <div class="empleado" *ngFor="let empleado of empleados; index as i">
     <div class="nombre">
-        <p>Nombre del empleado: {{ empleado.nombre }}</p>
-        <input type="text" [(ngModel)]="this.empleados[i].nombre">
+      <p>Nombre del empleado: {{ empleado.nombre }}</p>
+      <input type="text" [(ngModel)]="this.empleados[i].nombre" />
     </div>
     <p>Apellido del empleado: {{ empleado.apellido }}</p>
     <p>
@@ -12,8 +12,16 @@
     <p>Empresa del empleado: {{ empresa.value }}</p>
     <label for=""> Introduce la empresa: </label>
     <input type="text" #empresa (keyup)="(0)" [disabled]="habilitacionCuadro" />
+
+    <button class="borrar" (click)="borrarUsuario(i)">
+      <label for="">borrar usuario</label>
+    </button>
   </div>
 </div>
+
+<button class="saludo" (click)="saludar('hola Jose')">
+  <label for="">Saludar!</label>
+</button>
 
 <!-- <button (click)="habilitacionCuadro = !habilitacionCuadro" ><label for="edit-empresa">EDITAR</label></button> -->
 <!-- <p>Edad del empleado: {{getEdad()}}</p> usaría getEdad() si en el ts lo tuviera con private-->
