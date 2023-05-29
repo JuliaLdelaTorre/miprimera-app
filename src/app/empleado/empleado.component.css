@@ -1,3 +1,14 @@
-p{
-    color: red;
+p {
+  color: red;
+}
+.container {
+  border: 1px solid black;
+  padding: 5px;
+  width: 700px;
+}
+.empleado {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px;
+    width: 500px;
 }

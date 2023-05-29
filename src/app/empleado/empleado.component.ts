@@ -5,25 +5,43 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './empleado.component.html',
   styleUrls: ['./empleado.component.css'],
 })
-export class EmpleadoComponent {
-  nombre = 'Julia';
+export class EmpleadoComponent implements OnInit {
+  empleados: Empleado[] = [];
+  julia: Empleado = {
+    nombre: 'Julia',
+    apellido: 'López',
+    edad: 30,
+    empresa: 'Dedalus',
+  };
 
-  apellido = 'López';
-
-  edad = 30;
-
-  /*empresa="Dedalus";
-
+  jose: Empleado = {
+    nombre: 'Jose',
+    apellido: 'Diaz',
+    edad: 19,
+    empresa: 'Dedalus',
+  }
   
-   private edad=30; si usara un modificador de acceso private, me crearía el getter para poder acceder desde fuera de este archivo ts.
+  habilitacionCuadro: boolean = false;
 
-  getEdad(){
-    return this.edad;
-  }*/
+  constructor() {}
 
-  /*llamaEmpresa(value:String) { función para usar el botón con el evento click
+  ngOnInit(): void {
+    this.empleados = [this.julia, this.jose];
+  }
 
-} */
+  getEdad(idEmpleado: Empleado['edad']) {
+    // return this.edad;
+    return;
+  }
 
-  habilitacionCuadro = false;
+  llamaEmpresa(value: String) {
+    // función para usar el botón con el evento click
+  }
+}
+
+export interface Empleado {
+  nombre: string;
+  apellido: string;
+  edad: number;
+  empresa: string;
 }
